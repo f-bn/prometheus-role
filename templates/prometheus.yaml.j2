@@ -1,0 +1,31 @@
+# Managed by Ansible
+
+# - Global -
+global:
+  {{ prometheus_global_config | to_nice_yaml(indent=2,sort_keys=False) | indent(2,false) }}
+
+# - Rule files -
+rule_files:
+  - {{ prometheus_config_dir }}/rules/*.rules
+
+{% if prometheus_remote_write_enabled -%}
+# - Remote Write -
+remote_write:
+  {{ prometheus_remote_write_config | to_nice_yaml(indent=2,sort_keys=False) | indent(2,false) }}
+{% endif -%}
+
+{% if prometheus_remote_read_enabled -%}
+# - Remote Read -
+remote_read:
+  {{ prometheus_remote_read_config | to_nice_yaml(indent=2,sort_keys=False) | indent(2,false) }}
+{% endif -%}
+
+{% if prometheus_alerting_config|length -%}
+# - Alerting -
+alerting:
+  {{ prometheus_alerting_config | to_nice_yaml(indent=2,sort_keys=False) | indent(2,false) }}
+{% endif -%}
+
+# - Scrape configs -
+scrape_configs:
+  {{ prometheus_scrape_configs | to_nice_yaml(indent=2,sort_keys=False) | indent(2,false) }}

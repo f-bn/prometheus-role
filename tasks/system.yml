@@ -1,0 +1,14 @@
+---
+- name: Ensure Prometheus user group exists
+  ansible.builtin.group:
+    name: prometheus
+    state: present
+
+- name: Ensure Prometheus user account exists
+  ansible.builtin.user:
+    name: prometheus
+    group: prometheus
+    shell: /usr/sbin/nologin
+    comment: "Prometheus user"
+    system: true
+    state: present

@@ -3,6 +3,17 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Example assertion
-    ansible.builtin.assert:
-      that: true
+    - name: Retrieve system services status
+      ansible.builtin.service_facts:
+
+    - name: Check if Prometheus service is enabled and running
+      ansible.builtin.assert:
+        that:
+          - services["prometheus.service"]["state"] == "running"
+          - services["prometheus.service"]["status"] == "enabled"
+
+    - name: Check if Prometheus endpoint is listening
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:9000/metrics"
+        method: GET
+        return_content: true

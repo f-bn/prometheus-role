@@ -1,2 +1,3 @@
 ---
-# vars file for ansible-role-template
+prometheus_binary_archive_url: "https://github.com/prometheus/prometheus/releases/download/v{{ prometheus_version }}/prometheus-{{ prometheus_version }}.linux-amd64.tar.gz"
+prometheus_binary_archive_checksum: "422dab055ed9c7bcaff52b718705f9192c6fac0de6b7e78dd278e70ee2663dcc"

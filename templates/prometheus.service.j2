@@ -1,0 +1,29 @@
+# Managed by Ansible
+
+[Unit]
+Description=Monitoring system and time series database 
+Documentation=https://prometheus.io/docs/introduction/overview/
+After=network-online.target local-fs.target
+Requires=local-fs.target
+
+[Service]
+Type=simple
+User=prometheus
+Group=prometheus
+ExecStart={{ prometheus_install_dir }}/prometheus \
+           --config.file={{ prometheus_config_dir }}/prometheus.yaml \
+           --storage.tsdb.path={{ prometheus_data_dir }} \
+           --storage.tsdb.retention.time={{ prometheus_storage_retention_time }} \
+           --storage.tsdb.retention.size={{ prometheus_storage_retention_size }} \
+           --web.listen-address={{ prometheus_web_listen_address }} \
+           --web.console.templates={{ prometheus_config_dir }}/consoles \
+           --web.console.libraries={{ prometheus_config_dir }}/console_libraries \
+           --web.config.file={{ prometheus_config_dir }}/web.yaml \
+           $PROMETHEUS_EXTRA_OPTS
+ExecReload=/usr/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+LimitNOFILE=65000
+
+[Install]
+WantedBy=multi-user.target

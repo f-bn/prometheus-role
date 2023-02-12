@@ -1,0 +1,33 @@
+---
+- name: Ensure Prometheus service unit is applied
+  ansible.builtin.template:
+    src: prometheus.service.j2
+    dest: /etc/systemd/system/prometheus.service
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Prometheus service
+
+- name: Ensure Prometheus service overrides directory exists
+  ansible.builtin.file:
+    path: /etc/systemd/system/prometheus.service.d
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Ensure Prometheus environment variables override is applied
+  ansible.builtin.template:
+    src: 10-environment.conf.j2
+    dest: /etc/systemd/system/prometheus.service.d/10-environment.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: Restart Prometheus service
+
+- name: Ensure Prometheus service is enabled and started
+  ansible.builtin.systemd:
+    name: prometheus.service
+    state: started
+    enabled: true
+    daemon_reload: true

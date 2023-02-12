@@ -1,2 +1,52 @@
 ---
-# defaults file for ansible-role-template
+# -----------------------------------------------------------------------------
+# GENERAL
+# -----------------------------------------------------------------------------
+prometheus_version: '2.42.0'
+
+prometheus_install_dir: /usr/local/bin
+prometheus_config_dir: /etc/prometheus
+prometheus_data_dir: /var/lib/prometheus
+
+prometheus_extra_opts: []
+
+prometheus_binary_update: false
+
+# -----------------------------------------------------------------------------
+# GLOBAL
+# -----------------------------------------------------------------------------
+prometheus_global_config:
+  scrape_interval: '1m'
+  scrape_timeout: '10s'
+
+# -----------------------------------------------------------------------------
+# REMOTE WRITE/READ
+# -----------------------------------------------------------------------------
+prometheus_remote_write_enabled: false
+prometheus_remote_write_config: {}
+prometheus_remote_read_enabled: false
+prometheus_remote_read_config: {}
+
+# -----------------------------------------------------------------------------
+# SCRAPE CONFIGS
+# -----------------------------------------------------------------------------
+prometheus_scrape_configs: {}
+
+# -----------------------------------------------------------------------------
+# ALERTING
+# -----------------------------------------------------------------------------
+prometheus_alerting_config: {}
+prometheus_alerting_rules: {}
+prometheus_alerting_rules_files: {}
+
+# -----------------------------------------------------------------------------
+# STORAGE
+# -----------------------------------------------------------------------------
+prometheus_storage_retention_time: '15d'
+prometheus_storage_retention_size: '0'
+
+# -----------------------------------------------------------------------------
+# WEB
+# -----------------------------------------------------------------------------
+prometheus_web_listen_address: '0.0.0.0:9000'
+prometheus_web_config: {}

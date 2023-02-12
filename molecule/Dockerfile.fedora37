@@ -1,6 +1,6 @@
 FROM quay.io/fedora/fedora:37
 
-RUN dnf install -y systemd procps-ng iproute util-linux python3 sudo hostname \
+RUN dnf install -y systemd procps-ng iproute util-linux python3 sudo hostname unzip \
     && dnf clean all \
     && rm -rf /var/cache/dnf/*
 

@@ -1,2 +1,12 @@
 ---
-# tasks file for ansible-role-template
+- name: Pre-installation system tasks
+  ansible.builtin.import_tasks: system.yml
+
+- name: Install Prometheus
+  ansible.builtin.import_tasks: install.yml
+
+- name: Configure Prometheus
+  ansible.builtin.import_tasks: configure.yml
+
+- name: Manage Prometheus service
+  ansible.builtin.import_tasks: service.yml
