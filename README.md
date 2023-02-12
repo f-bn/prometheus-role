@@ -1,6 +1,6 @@
 <p><img src="https://cncf-branding.netlify.app/img/projects/prometheus/horizontal/color/prometheus-horizontal-color.svg" alt="prom-logo" title="prom" align="top" height=80 /></p>
 
-*Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. Since its inception in 2012, many companies and organizations have adopted Prometheus, and the project has a very active developer and user community*
+*Prometheus is an open-source systems monitoring and alerting toolkit originally built at SoundCloud. Since its inception in 2012, many companies and organizations have adopted Prometheus, and the project has a very active developer and user community. It is now a standalone open source project and maintained independently of any company.*
 
 ### General informations
 
