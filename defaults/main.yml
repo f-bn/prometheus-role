@@ -30,7 +30,10 @@ prometheus_remote_read_config: {}
 # -----------------------------------------------------------------------------
 # SCRAPE CONFIGS
 # -----------------------------------------------------------------------------
-prometheus_scrape_configs: {}
+prometheus_scrape_configs:
+  - job_name: prometheus
+    static_configs:
+    - targets: ['localhost:9090']
 
 # -----------------------------------------------------------------------------
 # ALERTING
