@@ -48,5 +48,5 @@ prometheus_storage_retention_size: '0'
 # -----------------------------------------------------------------------------
 # WEB
 # -----------------------------------------------------------------------------
-prometheus_web_listen_address: '0.0.0.0:9000'
+prometheus_web_listen_address: '0.0.0.0:9090'
 prometheus_web_config: {}
