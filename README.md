@@ -44,7 +44,7 @@ The role variables documentation are available here :
 | `prometheus_alerting_rules_files` | `{}`                         | If non-empty, upload the file at the given path(s) from the Ansible controller to the Prometheus rules directory |
 | `prometheus_storage_retention_time`| `15d`                       | Defines the Prometheus TSDB metrics retention time (see official [documentation](https://prometheus.io/docs/prometheus/latest/storage/) for details |
 | `prometheus_storage_retention_size`| `0`                         | Defines the Prometheus TSDB metrics retention size (see official [documentation](https://prometheus.io/docs/prometheus/latest/storage/) for details | 
-| `prometheus_web_listen_address`   | `0.0.0.0:9000`               | Defines the Prometheus endpoint address                          |
+| `prometheus_web_listen_address`   | `0.0.0.0:9090`               | Defines the Prometheus endpoint address                          |
 | `prometheus_web_config`           | `{}`                         | Defines the Prometheus endpoint configuration                    |
 
 ### Examples
