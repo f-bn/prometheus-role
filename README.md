@@ -32,7 +32,7 @@ The role variables documentation are available here :
 | `prometheus_config_dir`           | `/etc/prometheus`            | Defines the Prometheus configuration directory                   |
 | `prometheus_data_dir`             | `/var/lib/prometheus`        | Defines the Prometheus TSDB data directory                       |
 | `prometheus_extra_opts`           | `[]`                         | Defines the extra arguments to pass to the Prometheus process when starting the instance |
-| `prometheus_binary_update`        | `false`                      | If set to `true`, force the Prometheus binaries update           |
+| `prometheus_binary_update`        | `false`                      | If set to `true`, force the Prometheus binaries update (if binary version is different)  |
 | `prometheus_global_config`        | see [defaults](defaults/main.yml)| Defines the Prometheus global configuration                  |
 | `prometheus_remote_write_enabled` | `false`                      | If set to `true`, enable Remote Write configuration              |
 | `prometheus_remote_write_config`  | `{}`                         | Defines the Prometheus Remote Write configuration                |
