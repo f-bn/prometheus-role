@@ -4,6 +4,8 @@
 
 ### General informations
 
+***Work in progress***
+
 This Ansible role is designed to deploy and configure Prometheus instance(s) on target server(s).
 
 **Table of Contents**
