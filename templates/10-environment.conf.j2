@@ -2,4 +2,4 @@
 
 [Service]
 Environment=GOMAXPROCS={{ ansible_processor_vcpus }}
-Environment=PROMETHEUS_EXTRA_OPTS="{{ prometheus_extra_opts | join(' ') }}"
+Environment=EXTRA_ARGS="{{ prometheus_extra_args | join(' ') }}"
