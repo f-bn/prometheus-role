@@ -10,8 +10,10 @@ Requires=local-fs.target
 Type=simple
 User=prometheus
 Group=prometheus
+Environment=GOMAXPROCS={{ ansible_processor_vcpus }}
+EnvironmentFile={{ prometheus_env_file }}
 ExecStart={{ prometheus_install_dir }}/prometheus \
-  --config.file={{ prometheus_config_dir }}/prometheus.yaml \
+  --config.file={{ prometheus_config_path }}\
   --storage.tsdb.path={{ prometheus_data_dir }} \
   --storage.tsdb.retention.time={{ prometheus_storage_retention_time }} \
   --storage.tsdb.retention.size={{ prometheus_storage_retention_size }} \
@@ -19,7 +21,7 @@ ExecStart={{ prometheus_install_dir }}/prometheus \
   --web.console.templates={{ prometheus_config_dir }}/consoles \
   --web.console.libraries={{ prometheus_config_dir }}/console_libraries \
   --web.config.file={{ prometheus_config_dir }}/web.yaml \
-  $EXTRA_ARGS
+  $CUSTOM_ARGS
 ExecReload=/usr/bin/kill -HUP $MAINPID
 Restart=on-failure
 RestartSec=5

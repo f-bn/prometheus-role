@@ -1,5 +1,0 @@
-# Managed by Ansible
-
-[Service]
-Environment=GOMAXPROCS={{ ansible_processor_vcpus }}
-Environment=EXTRA_ARGS="{{ prometheus_extra_args | join(' ') }}"

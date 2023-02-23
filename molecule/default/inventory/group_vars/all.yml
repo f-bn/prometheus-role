@@ -7,7 +7,7 @@ prometheus_global_config:
   scrape_timeout: 10s
   evaluation_interval: 30s
 
-prometheus_extra_args:
+prometheus_custom_args:
   - '--web.route-prefix=/'
   - '--enable-feature=remote-write-receiver'
 

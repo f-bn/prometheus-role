@@ -6,9 +6,10 @@ prometheus_version: '2.42.0'
 
 prometheus_install_dir: /usr/local/bin
 prometheus_config_dir: /etc/prometheus
+prometheus_config_path: "{{ prometheus_config_dir }}/config.yaml"
 prometheus_data_dir: /var/lib/prometheus
 
-prometheus_extra_args: []
+prometheus_custom_args: []
 
 prometheus_binary_update: false
 
@@ -52,4 +53,5 @@ prometheus_storage_retention_size: '0'
 # WEB
 # -----------------------------------------------------------------------------
 prometheus_web_listen_address: '0.0.0.0:9090'
+prometheus_web_config_path: "{{ prometheus_config_dir }}/web.yaml"
 prometheus_web_config: {}
