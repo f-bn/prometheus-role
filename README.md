@@ -33,7 +33,7 @@ The role variables documentation are available here :
 | `prometheus_install_dir`          | `/usr/local/bin`             | Defines the Prometheus binaries installation directory           |
 | `prometheus_config_dir`           | `/etc/prometheus`            | Defines the Prometheus configuration directory                   |
 | `prometheus_data_dir`             | `/var/lib/prometheus`        | Defines the Prometheus TSDB data directory                       |
-| `prometheus_extra_opts`           | `[]`                         | Defines the extra arguments to pass to the Prometheus process when starting the instance |
+| `prometheus_custom_args`          | `[]`                         | Defines the extra arguments to pass to the Prometheus process when starting the instance |
 | `prometheus_binary_update`        | `false`                      | If set to `true`, force the Prometheus binaries update (if binary version is different)  |
 | `prometheus_global_config`        | see [defaults](defaults/main.yml)| Defines the Prometheus global configuration                  |
 | `prometheus_remote_write_enabled` | `false`                      | If set to `true`, enable Remote Write configuration              |
@@ -47,7 +47,8 @@ The role variables documentation are available here :
 | `prometheus_storage_retention_time`| `15d`                       | Defines the Prometheus TSDB metrics retention time (see official [documentation](https://prometheus.io/docs/prometheus/latest/storage/) for details |
 | `prometheus_storage_retention_size`| `0`                         | Defines the Prometheus TSDB metrics retention size (see official [documentation](https://prometheus.io/docs/prometheus/latest/storage/) for details | 
 | `prometheus_web_listen_address`   | `0.0.0.0:9090`               | Defines the Prometheus endpoint address                          |
-| `prometheus_web_config`           | `{}`                         | Defines the Prometheus endpoint configuration                    |
+| `prometheus_web_config_path`      | `{{ prometheus_config_dir }}/web.yaml` | Defines the Prometheus web endpoint configuration file path |
+| `prometheus_web_config`           | `{}`                         | Defines the Prometheus web endpoint configuration                |
 
 ### Examples
 
